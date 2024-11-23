@@ -6,46 +6,53 @@
 /*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:24:53 by mmembril          #+#    #+#             */
-/*   Updated: 2024/11/09 16:24:45 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:22:58 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int ft_cifrar(char *str)
+void    handler(int signal)
 {
-	int binario;
-	int i;
+    (void) signal;
+    ft_printf("\n ACK\n");
+    exit (0);
+}
+
+void    ft_send_byte(char c, int pid)
+{
+    int i;
 
     i = 0;
-    binario = 0;
-	if (str[i] >= 0)
-	{
-		while (str[i] > 0)
-		{
-			if (str[i] % 2 == 1) 	
-				binario += 1;		
-			else
-				binario += 0;	
-            binario *= 10;
-			str[i] /= 2;			
-		}
-		ft_printf("%i", binario);	 
-	}
-    return (binario);
+    while (i < 8)
+    {
+        if (c & (0b1 << i))
+            kill(pid, SIGUSR1);
+        else
+            kill(pid, SIGUSR2);
+        i++;
+    }
+}
+
+void    ft_send_char(int pid, char *msg)
+{
+    int i;
+
+    i = 0;
+    while (msg[i])
+    {
+        ft_send_byte(msg[i], pid);
+        usleep(50);
+        i++;
+    }
 }
 
 int main(int argc, char **argv)
-{
-    int pid;
-    char *str;
-    
+{   
     if (argc == 3)
     {
-        pid = ft_atoi(argv[1]);
-        str = argv[2];
-        ft_printf ("%i\n%s\n", pid, str);
-        ft_cifrar (str);
+        signal(SIGUSR1, handler);
+        ft_send_char(ft_atoi(argv[1]), argv[2]);        
     }
     return (0);
 }
