@@ -6,16 +6,16 @@
 /*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:24:42 by mmembril          #+#    #+#             */
-/*   Updated: 2024/11/23 17:10:25 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:33:27 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include "ft_printf.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf.h"
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);

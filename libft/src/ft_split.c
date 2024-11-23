@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 16:05:56 by mmembril          #+#    #+#             */
-/*   Updated: 2024/11/09 14:14:58 by mmembril         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:34:30 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		size = ft_word(s, c, i);
 		str[j] = ft_substr(s, i, size);
-		if (!str[j])	
+		if (!str[j])
 			return (ft_free(str, j), NULL);
 		i += size;
 		j++;
