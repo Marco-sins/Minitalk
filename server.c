@@ -6,7 +6,7 @@
 /*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:25:09 by mmembril          #+#    #+#             */
-/*   Updated: 2024/12/09 22:08:38 by marco            ###   ########.fr       */
+/*   Updated: 2024/12/09 22:46:02 by marco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 	i++;
 	if (i == 8)
 	{
-		printf("%c", byte);
+		ft_printf("%c", byte);
 		if (byte == '\0')
 		{
-			printf("\n");
+			ft_printf("\n");
 			if (info->si_pid > 0)
 				kill(info->si_pid, SIGUSR1);
 		}
@@ -37,14 +37,13 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	int pid;
-	struct sigaction sig;
+	struct sigaction	sig;
+	int					pid;
 
 	pid = getpid();
-	printf("The process ID is %d\n", pid);
-
-    sig.sa_sigaction = signal_handler;
-    sig.sa_flags = SA_SIGINFO;
+	ft_printf("The process ID is %d\n", pid);
+	sig.sa_sigaction = signal_handler;
+	sig.sa_flags = SA_SIGINFO;
 	sigemptyset(&sig.sa_mask);
 	sigaction(SIGUSR1, &sig, NULL);
 	sigaction(SIGUSR2, &sig, NULL);
