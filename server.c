@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:25:09 by mmembril          #+#    #+#             */
-/*   Updated: 2024/12/09 22:46:02 by marco            ###   ########.fr       */
+/*   Updated: 2024/12/17 17:26:19 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ void	signal_handler(int signal, siginfo_t *info, void *context)
 	i++;
 	if (i == 8)
 	{
-		ft_printf("%c", byte);
 		if (byte == '\0')
 		{
 			ft_printf("\n");
 			if (info->si_pid > 0)
 				kill(info->si_pid, SIGUSR1);
 		}
+		else
+			ft_printf("%c", byte);
 		i = 0;
 		byte = 0;
 	}
@@ -49,7 +50,7 @@ int	main(void)
 	sigaction(SIGUSR2, &sig, NULL);
 	while (1)
 	{
-		usleep(50);
+		usleep(100);
 	}
 	return (0);
 }
