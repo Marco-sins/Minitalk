@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 13:24:53 by mmembril          #+#    #+#             */
-/*   Updated: 2024/12/30 17:58:05 by mmembril         ###   ########.fr       */
+/*   Created: 2024/12/30 17:56:18 by mmembril          #+#    #+#             */
+/*   Updated: 2024/12/30 18:03:24 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+
+#include "minitalk_bonus.h"
 
 void	handler(int signal)
 {
