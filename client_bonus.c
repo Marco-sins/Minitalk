@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:56:18 by mmembril          #+#    #+#             */
-/*   Updated: 2024/12/30 18:03:24 by mmembril         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:22:41 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "minitalk_bonus.h"
 
