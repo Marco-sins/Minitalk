@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printfutils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marco <marco@student.42.fr>                +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:06:26 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/07 12:28:31 by marco            ###   ########.fr       */
+/*   Updated: 2025/02/25 13:00:37 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd_printf(char c, int fd)
 {
 	if (c)
 		write(fd, &c, 1);
 	return (1);
 }
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd_printf(int n, int fd)
 {
 	int	p;
 
 	p = 0;
 	if (n == -2147483648)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
+		ft_putchar_fd_printf('-', fd);
+		ft_putchar_fd_printf('2', fd);
 		n = 147483648;
 		p = 2;
 	}
@@ -35,19 +35,19 @@ int	ft_putnbr_fd(int n, int fd)
 	{
 		n *= -1;
 		p = 1;
-		ft_putchar_fd('-', fd);
+		ft_putchar_fd_printf('-', fd);
 	}
 	if (n >= 10)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
+		ft_putnbr_fd_printf(n / 10, fd);
+		ft_putnbr_fd_printf(n % 10, fd);
 	}
 	else
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar_fd_printf(n + '0', fd);
 	return (ft_cont_numbers(n) + p);
 }
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd_printf(char *s, int fd)
 {
 	int	i;
 	int	len;
@@ -55,13 +55,13 @@ int	ft_putstr_fd(char *s, int fd)
 	i = 0;
 	len = 0;
 	if (!s)
-		return (ft_putstr_fd("(null)", fd));
+		return (ft_putstr_fd_printf("(null)", fd));
 	while (s[i])
 	{
-		len += ft_putchar_fd(s[i], fd);
+		len += ft_putchar_fd_printf(s[i], fd);
 		i++;
 	}
-	ft_putchar_fd('\0', fd);
+	ft_putchar_fd_printf('\0', fd);
 	return (len);
 }
 
@@ -72,11 +72,11 @@ int	ft_remove_signed(unsigned int n, int fd)
 	i = 0;
 	if (n >= 10)
 	{
-		i += ft_putnbr_fd(n / 10, fd);
-		i += ft_putnbr_fd(n % 10, fd);
+		i += ft_putnbr_fd_printf(n / 10, fd);
+		i += ft_putnbr_fd_printf(n % 10, fd);
 	}
 	else
-		i += ft_putchar_fd(n + '0', fd);
+		i += ft_putchar_fd_printf(n + '0', fd);
 	return (i);
 }
 
@@ -88,11 +88,11 @@ int	ft_type(char c, va_list args)
 	if (c == 'c')
 		len += ft_putchar_fd2(va_arg(args, int), 1);
 	else if (c == 's')
-		len += ft_putstr_fd(va_arg(args, char *), 1);
+		len += ft_putstr_fd_printf(va_arg(args, char *), 1);
 	else if (c == 'p')
 		len += ft_get_ptr(va_arg(args, unsigned long long), 1);
 	else if (c == 'd' || c == 'i')
-		len += ft_putnbr_fd(va_arg(args, int), 1);
+		len += ft_putnbr_fd_printf(va_arg(args, int), 1);
 	else if (c == 'u')
 		len += ft_remove_signed(va_arg(args, unsigned int), 1);
 	else if (c == 'x')
@@ -100,6 +100,6 @@ int	ft_type(char c, va_list args)
 	else if (c == 'X')
 		len += ft_printhex(va_arg(args, unsigned int), "0123456789ABCDEF", 1);
 	else if (c == '%')
-		len += ft_putchar_fd('%', 1);
+		len += ft_putchar_fd_printf('%', 1);
 	return (len);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printfutils2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 23:05:59 by marco             #+#    #+#             */
-/*   Updated: 2024/10/06 16:30:15 by mmembril         ###   ########.fr       */
+/*   Updated: 2025/02/25 13:00:54 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int	ft_get_ptr(unsigned long long i, int fd)
 
 	len = 0;
 	if (i == 0)
-		return (ft_putstr_fd("(nil)", fd));
-	len += ft_putstr_fd("0x", fd);
+		return (ft_putstr_fd_printf("(nil)", fd));
+	len += ft_putstr_fd_printf("0x", fd);
 	len += ft_printhex(i, "0123456789abcdef", fd);
 	return (len);
 }

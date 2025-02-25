@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 20:48:11 by mmembril          #+#    #+#             */
-/*   Updated: 2024/10/06 16:29:51 by mmembril         ###   ########.fr       */
+/*   Updated: 2025/02/25 12:59:01 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 int	ft_printf(char const *str, ...);
 int	ft_type(char c, va_list args);
-int	ft_putchar_fd(char c, int fd);
-int	ft_putnbr_fd(int n, int fd);
-int	ft_putstr_fd(char *s, int fd);
+int	ft_putchar_fd_printf(char c, int fd);
+int	ft_putnbr_fd_printf(int n, int fd);
+int	ft_putstr_fd_printf(char *s, int fd);
 int	ft_printhex(unsigned long long num, char *base, int fd);
 int	ft_cont_numbers(int i);
 int	ft_putchar_fd2(char c, int fd);

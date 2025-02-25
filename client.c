@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:24:53 by mmembril          #+#    #+#             */
-/*   Updated: 2024/12/30 17:58:05 by mmembril         ###   ########.fr       */
+/*   Updated: 2025/02/25 14:12:27 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_send_byte(char c, int pid)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(300);
+		usleep(1000);
 		i++;
 	}
 }
@@ -42,7 +42,7 @@ void	ft_send_char(int pid, char *msg)
 	while (msg[i])
 	{
 		ft_send_byte(msg[i], pid);
-		usleep(100);
+		usleep(200);
 		i++;
 	}
 	ft_send_byte('\0', pid);
@@ -54,6 +54,8 @@ int	main(int argc, char **argv)
 	{
 		signal(SIGUSR1, handler);
 		ft_send_char(ft_atoi(argv[1]), argv[2]);
+		while(1)
+			usleep(1);
 	}
 	return (0);
 }

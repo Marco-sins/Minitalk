@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 18:47:57 by mmembril          #+#    #+#             */
-/*   Updated: 2024/11/09 14:13:13 by mmembril         ###   ########.fr       */
+/*   Updated: 2025/02/25 12:59:17 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_printf(char const *str, ...)
 			len += ft_type(str[i], args);
 		}
 		else
-			len += ft_putchar_fd(str[i], 1);
+			len += ft_putchar_fd_printf(str[i], 1);
 		i++;
 	}
 	va_end(args);

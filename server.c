@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmembril <mmembril@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:25:09 by mmembril          #+#    #+#             */
-/*   Updated: 2025/01/20 12:18:43 by mmembril         ###   ########.fr       */
+/*   Updated: 2025/02/25 14:07:45 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	main(void)
 	sigaction(SIGUSR2, &sig, NULL);
 	while (1)
 	{
-		usleep(50);
+		pause();
+		usleep(100);
 	}
 	return (0);
 }
