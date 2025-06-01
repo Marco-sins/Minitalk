@@ -6,7 +6,7 @@
 /*   By: mmembril <mmembril@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 13:25:09 by mmembril          #+#    #+#             */
-/*   Updated: 2025/02/25 14:07:45 by mmembril         ###   ########.fr       */
+/*   Updated: 2025/06/01 14:08:58 by mmembril         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ int	main(void)
 	sigaction(SIGUSR1, &sig, NULL);
 	sigaction(SIGUSR2, &sig, NULL);
 	while (1)
-	{
 		pause();
-		usleep(100);
-	}
 	return (0);
 }

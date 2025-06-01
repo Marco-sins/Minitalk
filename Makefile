@@ -31,4 +31,17 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus: fclean $(CLIENT) $(SERVER)
+
+$(CLIENT): $(LIBFT) client_bonus.c
+	@gcc $(CFLAGS) $(INC) -o $(CLIENT) client_bonus.c $(LIBFT)
+
+$(SERVER): $(LIBFT) server_bonus.c
+	@gcc $(CFLAGS) $(INC) -o $(SERVER) server_bonus.c $(LIBFT)
+
+$(LIBFT):
+	@make -C libft
+	@echo 🔥 🔥 Making Executables ✅ ✅
+
+
+.PHONY: all clean fclean re bonus
